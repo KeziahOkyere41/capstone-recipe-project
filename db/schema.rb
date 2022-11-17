@@ -32,6 +32,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_123402) do
     t.datetime "date_created"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
