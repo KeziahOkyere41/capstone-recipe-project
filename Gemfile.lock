@@ -68,10 +68,13 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+<<<<<<< HEAD
+=======
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+>>>>>>> refs/remotes/origin/main
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.13.0)
@@ -132,6 +135,11 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
+<<<<<<< HEAD
+=======
+    pg (1.4.4)
+    pg (1.4.4-x64-mingw-ucrt)
+>>>>>>> refs/remotes/origin/main
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)

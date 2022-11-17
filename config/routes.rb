@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :book_marks
+<<<<<<< HEAD
+=======
+  resources :reviews
+>>>>>>> refs/remotes/origin/main
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
