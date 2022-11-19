@@ -1,5 +1,5 @@
-production:
-  cloud_name: "dz7qewa4e"
-  api_key: "482775351438583"
-  api_secret: "ZWX_bORwHpWL3_3mlal7cVEfo-8"
-  secure: true
+#production:
+ # cloud_name: ENV['CLOUD_NAME']
+  #api_key: ENV['CLOUD_API_KEY']
+  #api_secret:ENV['CLOUD_API_SECRET']
+  #secure: true
