@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_123402) do
     t.string "procedures"
     t.integer "number_of_people_served"
     t.integer "user_id"
-    t.datetime "date_created"
+    t.string "duration"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -45,7 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_123402) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

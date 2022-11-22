@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :book_marks
   resources :reviews
   resources :users
+  resources :recipes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -12,5 +13,5 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  #get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
