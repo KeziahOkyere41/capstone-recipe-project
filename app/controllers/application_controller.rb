@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 include ActionController::Cookies
-
+protect_from_forgery prepend: true, with: :exception
+skip_before_action :verify_authenticity_token
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
 before_action :authorize
