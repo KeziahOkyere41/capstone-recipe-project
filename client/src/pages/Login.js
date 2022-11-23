@@ -3,18 +3,18 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert"
 import "../index.css";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export default function LoginPage({ onLogin }) {
-  let history = useHistory();
-  const [username, setUsername] = useState("");
+  let history = useNavigate();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   function validateForm() {
-    return username.length > 0 && password.length > 0;
+    return email.length > 0 && password.length > 0;
   }
 
   function handleSubmit(e) {
@@ -25,7 +25,7 @@ export default function LoginPage({ onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: username, password }),
+      body: JSON.stringify({ email: email, password }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
@@ -41,13 +41,13 @@ export default function LoginPage({ onLogin }) {
     <div className="Login">
       <Form onSubmit={handleSubmit}>
           <Form.Group size="lg" controlId="username">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control
               autoFocus
               autoComplete="off"
-              type="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
           />
           </Form.Group>
           <Form.Group size="lg" controlId="password">
