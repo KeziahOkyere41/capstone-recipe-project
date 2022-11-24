@@ -6,7 +6,7 @@ import "../index.css";
 import { useNavigate } from "react-router-dom";
 
 
-export default function LoginPage({ onLogin }) {
+export default function LoginPage({ setUser }) {
   let history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +29,8 @@ export default function LoginPage({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user)).then(history.push("/"));
+        r.json().then((user) => setUser(user));
+        history("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

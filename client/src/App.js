@@ -23,7 +23,28 @@ function App() {
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
-    Promise.all([
+    fetch("/me")
+      .then((r) => {
+        if(r.ok){
+          r.json().then(
+           (currentUser) => {
+             setUser(currentUser)
+           }
+          );
+         }
+       });
+       
+     fetch("/recipes")
+      .then((r) => {
+        if(r.ok){
+          r.json().then(
+           (data) => {
+             setRecipes(data)
+           }
+          );
+         }
+       });
+    /*Promise.all([
       fetch("/recipes"),
       fetch("/me") 
     ])
@@ -31,25 +52,23 @@ function App() {
      console.log(userRes)
        if([recipesRes.ok, userRes.ok]){
          Promise.all([recipesRes.json(), userRes.json()])
-         .then(([recipes, user]) => {
+         .then(([recipes, currentUser]) => {
            setRecipes(recipes);
-           setUser(user);
-           setIsLoggedin((isLoggedin) => !isLoggedin)
+           setUser(currentUser);
+           //setIsLoggedin((isLoggedin) => !isLoggedin)
+           
          })
        }else {
         Promise.all([recipesRes.json(), userRes.json()]).then(data => setErrors(data.errors))
       }
        
      })
-     
-    /*fetch("/recipes")
-      .then((r) => r.json())
-      .then(setRecipes);
-  }*/}, []);
+     */
+    }, []);
 
   return (
     <Router>
-      <Navbar user={user} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} setUser={setUser} />
+      <Navbar user={user} />
       <div className="container main">
         {isLoggedin && user ? (
           <Routes>

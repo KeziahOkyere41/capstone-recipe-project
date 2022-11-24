@@ -5,9 +5,9 @@ import Sidebar from "./Sidebar"
 
 import { faHome, faList, faCog, faUserPlus, faRightToBracket } from "@fortawesome/free-solid-svg-icons"
 
-export default function Navbar({ user, setUser, isLoggedin, setIsLoggedin}){
+export default function Navbar({ user }){
     console.log(user)
-    console.log(isLoggedin)
+    //console.log(isLoggedin)
     const [showSidebar, setShowSidebar] = useState(false)
     const location = useLocation()
     const genLinks = [
@@ -64,8 +64,8 @@ export default function Navbar({ user, setUser, isLoggedin, setIsLoggedin}){
     function handleLogoutClick() {
       fetch("/logout", { method: "DELETE" }).then((r) => {
         if (r.ok) {
-          setUser(null);
-          setIsLoggedin((isLoggedin) => !isLoggedin)
+          //setUser(null);
+          //setIsLoggedin((isLoggedin) => !isLoggedin)
         }
       });
     }
@@ -78,7 +78,7 @@ export default function Navbar({ user, setUser, isLoggedin, setIsLoggedin}){
         <>
             <div className="navbar container">
                 <Link to="/" className="logo">S<span>olo</span>cipes</Link>
-                {isLoggedin && user ? (
+                {user ? (
                  <>
                    <div className="nav-links">
                       { userLinks.map(link => (
