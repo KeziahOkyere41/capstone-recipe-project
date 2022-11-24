@@ -2,15 +2,13 @@ export default function Footer(){
     return (
         <div className="footer container">
             <div className="footer-section">
-                <p className="title">FoodiesHub.com</p>
-                <p>FoodiesHub is a place where you can please your soul and tummy with delicious food recepies of all cuisine. And our service is absolutely free.</p>
-                <p>&copy; 2021 | All Rights Reserved</p>
+                <p className="title">Solocipes</p>
+                <p>Solocipes is a place where you can please your soul and tummy with delicious food recipes of all cuisine. And our service is absolutely free.</p>
+                <p>&copy; 2022 | All Rights Reserved!</p>
             </div>
             <div className="footer-section">
                 <p className="title">Contact Us</p>
-                <p>foodieshub@gmail.com</p>
-                <p>+342-5324-9454</p>
-                <p>2393 Street NYC</p>
+                <p>+1234567</p>
             </div>
             <div className="footer-section">
                 <p className="title">Socials</p>

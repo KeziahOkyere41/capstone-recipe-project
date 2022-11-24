@@ -3,28 +3,28 @@ import ChiefCard from "./ChiefCard"
 export default function ChiefsSection(){
     const chiefs = [
         {
-            name: "Juan Carlos",
+            name: "Michael Okoe",
             img: "/img/top-chiefs/img_1.jpg",
             recipesCount: "10",
-            cuisine: "Mexican",
+            cuisine: "Ghanaian",
         },
         {
-            name: "John Doe",
+            name: "Prince Kumabio",
             img: "/img/top-chiefs/img_2.jpg",
             recipesCount: "05",
-            cuisine: "Japanese",
+            cuisine: "Ghanaian",
         },
         {
-            name: "Erich Maria",
+            name: "Keziah A. Okyere",
             img: "/img/top-chiefs/img_3.jpg",
             recipesCount: "13",
-            cuisine: "Italian",
+            cuisine: "Ghanaian",
         },
         {
-            name: "Chris Brown",
+            name: "Ibrahim Abdullai",
             img: "/img/top-chiefs/img_4.jpg",
             recipesCount: "08",
-            cuisine: "American"
+            cuisine: "Ghanaian"
         },
         {
             name: "Blake Lively",
