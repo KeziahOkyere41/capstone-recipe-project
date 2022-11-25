@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { faStar } from "@fortawesome/free-solid-svg-icons"
+import { FaStar } from "react-icons/fa";
+import './ratings.css';
 
-export default function PreviousSearches(){
+export default function StarRating(){
     const [rating, setRating] = useState(null)
+    const [hover, setHover] = useState(null)
     return (
         <div>
-        {[...Array]}.map((star, i) => {
+        {[...Array(5)].map((star, i) => {
           const ratingValue = i + 1;
-          return <label>
-                    <input type="radio" name="rating" value={ratingValue} onClick={() => setRating(ratingValue)}/>
-                    <faStar className="star" color={ratingValue <= 1 ? "":""} size={10}  />
-                  </label>
+          return (
+            <label>
+              <input type="radio" name="rating" value={ratingValue} onClick={() => setRating(ratingValue)} />
+              <FaStar className="star" color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e59"} size={10} onMouseEnter={() => setHover(ratingValue)} onMouseLeave={() => setHover(null)} />
+            </label>
+           )
         })
+        }
         </div>
     )
 }

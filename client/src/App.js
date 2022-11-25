@@ -68,9 +68,9 @@ function App() {
 
   return (
     <Router>
-      <Navbar user={user} />
+      <Navbar user={user} setUser={setUser} />
       <div className="container main">
-        {isLoggedin && user ? (
+        {user ? (
           <Routes>
             <Route path="/" element={<Home recipes={recipes} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} user={user}/>} />
             <Route path="/recipes" element={<Recipes recipes={recipes} />} />

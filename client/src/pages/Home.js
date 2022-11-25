@@ -5,6 +5,7 @@ import ChiefsSection from "../components/ChiefsSection";
 
 
 export default function Home({ recipes, user }){
+    console.log(user)
     return (
       <>
         {!user? (

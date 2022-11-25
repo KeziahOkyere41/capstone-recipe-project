@@ -1,4 +1,9 @@
+import { useNavigate } from  'react-router-dom'
+
+
+
 export default function ImproveSkills(){
+    const navigate = useNavigate();
     const list = [
         "Learn new recepies",
         "Experiment with food",
@@ -7,6 +12,10 @@ export default function ImproveSkills(){
         "Get cooking tips",
         "Get ranked"
     ]
+    
+    function handleClick(){
+      navigate("/signup")
+    }
 
     return (
         <div className="section improve-skills">
@@ -18,7 +27,7 @@ export default function ImproveSkills(){
                 { list.map((item, index) => (
                     <p className="skill-item" key={index}>{item}</p>
                 )) }
-                <button className="btn">singup now</button>
+                <button onClick={handleClick} className="btn">singup now</button>
             </div>
         </div>
     )
