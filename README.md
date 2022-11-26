@@ -13,9 +13,9 @@
   cd into your app
   run code . to open in your VScode
  
- ## Then, create a new remote repository on GitHub. Head to github.com and click the + icon in the top-right corner and follow the steps to create a new repository. Please do not check any of the options such as 'Add a README file', 'Add a .gitignore file', etc since you're importing an existing repository, creating any of those files on GitHub will cause issues.
+ ### Then, create a new remote repository on GitHub. Head to github.com and click the + icon in the top-right corner and follow the steps to create a new repository. Please do not check any of the options such as 'Add a README file', 'Add a .gitignore file', etc since you're importing an existing repository, creating any of those files on GitHub will cause issues.
 
-## If you're working with a partner, add them as a collaborator on GitHub. From your repo on GitHub, go to Settings > Manage Access > Invite a collaborator and enter your partner's username. Once your partner has access, they should git clone (not fork) the repository.
+### If you're working with a partner, add them as a collaborator on GitHub. From your repo on GitHub, go to Settings > Manage Access > Invite a collaborator and enter your partner's username. Once your partner has access, they should git clone (not fork) the repository.
 
 Finally, connect the GitHub remote repository to your local repository and push up your code:
   $ git remote add origin git@github.com:your-username/your-project-name.git
@@ -48,7 +48,7 @@ Finally, connect the GitHub remote repository to your local repository and push 
 
 ### Note: depending on your Git configuration, your default branch might be named master or main. You can verify which by running git branch --show-current. If it's master, you'll need to run git push heroku master instead.
 
-## Any time you have changes to deploy, just make sure your changes are committed on the main branch of your repo, and push those changes to Heroku to deploy them.
+### Any time you have changes to deploy, just make sure your changes are committed on the main branch of your repo, and push those changes to Heroku to deploy them.
 
 ## You can view your deployed app with:
   heroku open
