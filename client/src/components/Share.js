@@ -1,11 +1,7 @@
 import React from "react"
 import './Share.css';
 
-interface ShareProps {
-  description: string
-}
-
-function Share({description}: ShareProps) {
+function Share(share) {
   const url = window.location.href;
 
   return (
