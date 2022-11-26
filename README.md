@@ -1,7 +1,7 @@
 # Capstone Recipe Project.
 
 # Project Description
-  This project project food recipes provide consistency in the production of menu items. It provides food cost control. It provides knowledge for front of the house staff as a sales tool and to help consumers with dietary concerns and allergies.
+  This food recipe project provides consistency in the production of menu items. It provides food cost control. It provides knowledge for front of the house staff as a sales tool and to help consumers with dietary concerns and allergies.
   
  # Requirements.
   * Backend: Ruby version 3.1.2

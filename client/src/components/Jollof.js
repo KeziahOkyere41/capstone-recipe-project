@@ -1,5 +1,6 @@
 import RecipeCard from "./RecipeCard";
 
+
 export default function Jollof({recipe}){
     return(
         <div className="recipe-card">
