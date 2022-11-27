@@ -43,7 +43,7 @@ const AddForm = props => {
                 </div>
                 <div style={{ display: "flex", marginBottom: "1rem" }} >
                     <p style={{ marginRight: "1rem" }}>Recipe Thumbnail</p>
-                    <input type="image" name="name" placeholder="Recipe Thumbnail" onChange={(e) => setThumbnail(e.target.value)} />
+                    <input type="file" name="name" placeholder="Recipe Thumbnail" onChange={(e) => setThumbnail(e.target.value)} />
                 </div>
                 <div style={{ display: "flex", marginBottom: "1rem" }} >
                     <p style={{ marginRight: "1rem" }}>Recipe Number_Of_People_Served</p>
