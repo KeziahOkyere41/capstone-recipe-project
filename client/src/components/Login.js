@@ -39,8 +39,12 @@ export default function LoginPage({ setUser }) {
   }
 
   return (
-    <div className="Login">
-      <Form onSubmit={handleSubmit}>
+    <div className="section login">
+      <div className="col img">
+                <img src="/img/gallery/img_10.jpg" alt="" />
+      </div>
+      <div className="col typography">
+        <Form onSubmit={handleSubmit}>
           <Form.Group size="lg" controlId="username">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -67,7 +71,8 @@ export default function LoginPage({ setUser }) {
               <Alert key={err}>{err}</Alert>
             ))}
           </Form.Group>
-      </Form>
+        </Form>
+      </div>
     </div>
   );
 }

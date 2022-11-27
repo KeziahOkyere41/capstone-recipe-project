@@ -1,13 +1,12 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import { useState } from "react"
 import Sidebar from "./Sidebar"
 
-import { faHome, faList, faCog, faUserPlus, faRightToBracket } from "@fortawesome/free-solid-svg-icons"
+import { faBookmark, faHome, faList, faCog, faUserPlus, faRightToBracket } from "@fortawesome/free-solid-svg-icons"
 
 export default function Navbar({ user, setUser }){
-    console.log(user)
-    //console.log(isLoggedin)
+    const navigate = useNavigate();
     const [showSidebar, setShowSidebar] = useState(false)
     const location = useLocation()
     const genLinks = [
@@ -57,7 +56,7 @@ export default function Navbar({ user, setUser }){
         {
             name: "Bookmarks",
             path: "/bookmarks",
-            icon: faUserPlus
+            icon: faBookmark
         }
     ]
     
@@ -65,6 +64,7 @@ export default function Navbar({ user, setUser }){
       fetch("/logout", { method: "DELETE" }).then((r) => {
         if (r.ok) {
           setUser(null);
+          navigate('/')
           //setIsLoggedin((isLoggedin) => !isLoggedin)
         }
       });
