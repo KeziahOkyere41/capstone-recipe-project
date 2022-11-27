@@ -9,12 +9,13 @@ import React, {
 } from "react"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer";
-
+import RecipeDetails from "./components/RecipeDetails";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import Settings from "./pages/Settings";
 import SignUpPage from "./pages/SignUp";
 import LoginPage from "./pages/Login";
+import Bookmarks from "./pages/Bookmarks";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -73,8 +74,10 @@ function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<Home recipes={recipes} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} user={user}/>} />
-            <Route path="/recipes" element={<Recipes recipes={recipes} />} />
+            <Route path="/recipes" element={<Recipes recipes={recipes} user={user} />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/recipes/:id" element={<RecipeDetails />} />
+            <Route path="/bookmarks" element={<Bookmarks user={user} />} />
           </Routes>
         ): (
         <Routes>
