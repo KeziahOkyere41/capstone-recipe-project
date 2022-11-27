@@ -86,7 +86,6 @@ export default function UserImproveSkills(){
             // recipe?  --> means only when the recipe object/data is exist, then destructure it, if not then don't do anything
             // every component that is rendered as a map, should have a key which tells react how to render the component
             // reference via dan abramov react keys
-            // https://twitter.com/dan_abramov/status/1415279090446204929?lang=en
             <recipe
               key={recipe?.id}
               name={recipe?.name}
