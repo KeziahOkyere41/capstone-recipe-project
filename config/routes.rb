@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   post "/signup", to: "users#create"
+  get "/my_book", to: "book_marks#my_bookmark"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
