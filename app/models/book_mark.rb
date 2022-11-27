@@ -1,4 +1,4 @@
 class BookMark < ApplicationRecord
 	belongs_to :user
-	has_many :recipes
+	belongs_to :recipe
 end
