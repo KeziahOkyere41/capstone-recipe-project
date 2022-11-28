@@ -5,16 +5,17 @@ import Alert from "react-bootstrap/Alert"
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 
-function SignUpPage({ onLogin }) {
+function SignUpPage({ setUser }) {
   let history = useNavigate();
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   function validateForm() {
-      return username.length > 0 && password.length > 0 && (password===passwordConfirmation);
+      return name.length > 0 && password.length > 0 && (password===passwordConfirmation);
   }
 
   function handleSubmit(e) {
@@ -27,7 +28,8 @@ function SignUpPage({ onLogin }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
+        name,
+        email,
         password,
         password_confirmation: passwordConfirmation,
         
@@ -35,7 +37,7 @@ function SignUpPage({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user)).then(history.push("/"));
+        r.json().then((user) => setUser(user)).then(history("/"));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -45,14 +47,24 @@ function SignUpPage({ onLogin }) {
   return (
       <div className="Signup">
       <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="username">
-        <Form.Label>Username</Form.Label>
+        <Form.Group size="lg" controlId="name">
+        <Form.Label>Full Name</Form.Label>
         <Form.Control
             autoFocus
             autoComplete="off"
-            type="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+        />
+        </Form.Group>
+        <Form.Group size="lg" controlId="email">
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+            autoFocus
+            autoComplete="off"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
         />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
