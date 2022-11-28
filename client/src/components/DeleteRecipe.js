@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Recipe = (props) => {
+const DeleteRecipe = (props) => {
     // destructuring an object
-    const { name, ingredients, cookingTime, procedure, thumbnail, categories, number_of_people_served, deleteRecipe } = props;
+    const { name, ingredients, cookingTime, procedure, thumbnail, categories, servings, deleteRecipe } = props;
 
     return (
         <div class="recipie-tab" >
@@ -12,7 +12,7 @@ const Recipe = (props) => {
             <p>Procedure: {procedure}</p>
             <p>Thumbnail: {thumbnail}</p>
             <p>Categories: {categories}</p>
-            <p>Number_Of_People_Served: {number_of_people_served}</p>
+            <p>Servings: {servings}</p>
             <button onClick={deleteRecipe}>
                 Delete Recipe
             </button>
@@ -20,4 +20,4 @@ const Recipe = (props) => {
     );
 };
 
-export default Recipe;
+export default DeleteRecipe;
