@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './AddForm.css';
 
 // name, cookingtime, ingredients
 
@@ -8,6 +9,9 @@ const AddForm = props => {
     const [cookingtime, setCookingtime] = useState(0);
     const [ingredients, setIngredients] = useState("");
     const [procedure, setProcedure] = useState("");
+    const [thumbnail, setThumbnail] = useState("");
+    const [categories, setCategories] = useState("");
+    const [number_of_people_served, setNumber_Of_People_Served] = useState("");
 
     const { handleAdd } = props;
 
@@ -27,13 +31,25 @@ const AddForm = props => {
                 </div>
                 <div style={{ display: "flex", marginBottom: "1rem" }} >
                     <p style={{ marginRight: "1rem" }}>Recipe Ingredients</p>
-                    <input className="recipie-input" type="text" name="name" placeholder="Recipe Ingredients" onChange={(e) => setIngredients(e.target.value)} />
+                    <input type="text" name="name" placeholder="Recipe Ingredients" onChange={(e) => setIngredients(e.target.value)} />
                 </div>
                 <div style={{ display: "flex", marginBottom: "1rem" }} >
                     <p style={{ marginRight: "1rem" }}>Recipe Procedure</p>
-                    <input className="recipie-input" type="text" name="name" placeholder="Recipe Procedure" onChange={(e) => setProcedure(e.target.value)} />
+                    <input type="text" name="name" placeholder="Recipe Procedure" onChange={(e) => setProcedure(e.target.value)} />
                 </div>
-                <button type="submit" onClick={() => handleAdd(name, cookingtime, ingredients, procedure)}>
+                <div style={{ display: "flex", marginBottom: "1rem" }} >
+                    <p style={{ marginRight: "1rem" }}>Recipe Categories</p>
+                    <input className="recipie-input" type="text" name="name" placeholder="Recipe Categories" onChange={(e) => setCategories(e.target.value)} />
+                </div>
+                <div style={{ display: "flex", marginBottom: "1rem" }} >
+                    <p style={{ marginRight: "1rem" }}>Recipe Thumbnail</p>
+                    <input type="image" name="name" placeholder="Recipe Thumbnail" onChange={(e) => setThumbnail(e.target.value)} />
+                </div>
+                <div style={{ display: "flex", marginBottom: "1rem" }} >
+                    <p style={{ marginRight: "1rem" }}>Recipe Number_Of_People_Served</p>
+                    <input className="recipie-input" type="text" name="name" placeholder="Recipe Number_Of_People_Served" onChange={(e) => setNumber_Of_People_Served(e.target.value)} />
+                </div>
+                <button type="submit" onClick={() => handleAdd(name, cookingtime, ingredients, procedure, categories, thumbnail, number_of_people_served)}>
                     Submit
                 </button>
             </form>
