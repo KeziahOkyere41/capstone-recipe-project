@@ -7,7 +7,7 @@ export default function UserImproveSkills(){
     const list = [
         "Learn new recepies",
         "Experiment with food",
-        "Write your own recepies",
+        "Write your own recipes",
         "Know nutrition facts",
         "Get cooking tips",
         "Get ranked"
