@@ -2,8 +2,8 @@ export default function Footer(){
     return (
         <div className="footer container">
             <div className="footer-section">
-                <p className="title">Solocipes</p>
-                <p>Solocipes is a place where you can please your soul and tummy with delicious food recipes of all cuisine. And our service is absolutely free.</p>
+                <p className="title">DelicaciesCrib</p>
+                <p>DelicaciesCrib is a place where you can please your soul and tummy with delicious food recipes of all cuisine. And our service is absolutely free.</p>
                 <p>&copy; 2022 | All Rights Reserved!</p>
             </div>
             <div className="footer-section">
