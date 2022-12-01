@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import AddForm from '../components/AddForm';
+import AddForm from './AddForm';
+import RecipeCard from './RecipeCard';
 import './AddForm.css';
 import DeleteRecipe from '../components/DeleteRecipe';
 
@@ -35,7 +36,7 @@ function Add() {
   // if the second parameter is empty, means that the useEffect will only run the first time the component mounts
 
   const handleAdd = (name, cookingtime, ingredients, categories, thumbnail, procedure, servings) => {
-    axios.post('http://localhost:5000/recipe/recipes', {
+    axios.post('recipes', {
       name,
       cookingtime: parseFloat(cookingtime),
       ingredients,
@@ -89,7 +90,7 @@ function Add() {
           return (
             // recipe?  --> means only when the recipe object/data is exist, then destructure it, if not then don't do anything
             // every component that is rendered as a map, should have a key which tells react how to render the component
-            <Recipe
+            <RecipeCard
               key={recipe?.id}
               name={recipe?.name}
               ingredients={recipe?.ingredients}

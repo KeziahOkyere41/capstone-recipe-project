@@ -5,6 +5,7 @@ import ChiefsSection from "../components/ChiefsSection";
 import UserImproveSkills from "../components/UserImproveSkills";
 
 
+
 export default function Home({ recipes, user }){
     console.log(user)
     return (
