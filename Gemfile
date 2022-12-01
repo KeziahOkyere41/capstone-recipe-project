@@ -45,6 +45,14 @@ gem "bcrypt", "~> 3.1.7"
 
 gem "tzinfo-data"
 
+gem "rack-cors" 
+
+gem "figaro"
+
+gem 'image_processing', '~> 1.2'
+gem 'shrine', '~> 3.3'
+gem "shrine-cloudinary", "~> 1.1"
+
 gem 'react-rails' 
 
 # Reduces boot times through caching; required in config/boot.rb

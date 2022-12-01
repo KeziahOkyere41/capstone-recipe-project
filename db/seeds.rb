@@ -13,3 +13,5 @@ recipes = Recipe.create([{"title": "Jollof rice", "categories": "African", "numb
 
 reviews = Review.create([{"comment": "This amazing plant has stablized the humidity in my office. It is easy to maintain too.", "rating": 5, "user_id": 3, "recipe_id": 2}, {"comment": "This plant has made my office lively and natural. But the leaves drop frequently.", "rating": 4, "user_id": 3, "recipe_id": 1}, {"comment": "This has really decorated my office and makes my office highly ventilated", "rating": 5, "user_id": 2, "recipe_id": 1}])
 
+
+

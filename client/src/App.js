@@ -23,6 +23,10 @@ function App() {
   const [user, setUser] = useState(null);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [errors, setErrors] = useState(null);
+  
+  function handleAddRecipe(newRecipe) {
+    setRecipes([...recipes, newRecipe]);
+  }
 
   useEffect(() => {
     fetch("/me")
@@ -79,13 +83,13 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/recipes/:id" element={<RecipeDetails />} />
             <Route path="/bookmarks" element={<Bookmarks user={user} />} />
-            <Route path="/postrecipe" element={<AddForm />} />
+            <Route path="/postrecipe" element={<AddForm user={user} handleAddRecipe={handleAddRecipe}/>} />
           </Routes>
         ): (
         <Routes>
           <Route path="/recipes" element={<Recipes recipes={recipes} />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signup" element={<SignUpPage setUser={setUser} />} />
           <Route path="/login" element={<LoginPage setUser={setUser} />} />
           <Route path="/" element={<Home recipes={recipes}/>} />
         </Routes>
