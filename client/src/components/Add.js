@@ -8,7 +8,7 @@ import DeleteRecipe from '../components/DeleteRecipe';
 // whenever install new packages, make sure to restart the server (npm start) to load the new packages/dependencies
 
 function Add() {
-  const [yourname, setYourName] = useState("Solocipes");
+  const [yourname, setYourName] = useState("DelicaciesCrib");
   const [searchQuery, setSearchQuery] = useState("");
   const [recipes, setRecipes] = useState([]); // a list of objects
   const [loading, setLoading] = useState(true); // the loading component is mandatory to resolve the undefined issues/errors whenever trying to fetch api

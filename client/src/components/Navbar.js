@@ -77,7 +77,7 @@ export default function Navbar({ user, setUser }){
     return (
         <>
             <div className="navbar container">
-                <Link to="/" className="logo">S<span>olo</span>cipes</Link>
+                <Link to="/" className="logo">Deli<span>cacies</span>Crib</Link>
                 {user ? (
                  <>
                    <div className="nav-links">
