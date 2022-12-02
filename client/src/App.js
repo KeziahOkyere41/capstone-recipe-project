@@ -16,7 +16,7 @@ import Settings from "./pages/Settings";
 import SignUpPage from "./pages/SignUp";
 import LoginPage from "./pages/Login";
 import Bookmarks from "./pages/Bookmarks";
-import AddForm from "./components/AddForm";
+import AddRecipe from "./components/AddRecipe";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -83,7 +83,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/recipes/:id" element={<RecipeDetails />} />
             <Route path="/bookmarks" element={<Bookmarks user={user} />} />
-            <Route path="/postrecipe" element={<AddForm user={user} handleAddRecipe={handleAddRecipe}/>} />
+            <Route path="/postrecipe" element={<AddRecipe user={user} handleAddRecipe={handleAddRecipe}/>} />
           </Routes>
         ): (
         <Routes>

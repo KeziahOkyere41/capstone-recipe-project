@@ -1,6 +1,5 @@
 import { useNavigate } from  'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import AddForm from '../components/AddForm';
 
 export default function UserImproveSkills(){
     const navigate = useNavigate();

@@ -9,6 +9,7 @@ function SignUpPage({ setUser }) {
   let history = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [image, setImage] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
@@ -30,6 +31,7 @@ function SignUpPage({ setUser }) {
       body: JSON.stringify({
         name,
         email,
+        image,
         password,
         password_confirmation: passwordConfirmation,
         
