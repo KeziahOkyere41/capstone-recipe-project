@@ -16,13 +16,17 @@ import Settings from "./pages/Settings";
 import SignUpPage from "./pages/SignUp";
 import LoginPage from "./pages/Login";
 import Bookmarks from "./pages/Bookmarks";
-import AddForm from "./components/AddForm";
+import AddRecipe from "./components/AddRecipe";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
   const [user, setUser] = useState(null);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [errors, setErrors] = useState(null);
+  
+  function handleAddRecipe(newRecipe) {
+    setRecipes([...recipes, newRecipe]);
+  }
 
   useEffect(() => {
     fetch("/me")
@@ -79,13 +83,13 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/recipes/:id" element={<RecipeDetails />} />
             <Route path="/bookmarks" element={<Bookmarks user={user} />} />
-            <Route path="/postrecipe" element={<AddForm />} />
+            <Route path="/postrecipe" element={<AddRecipe user={user} handleAddRecipe={handleAddRecipe}/>} />
           </Routes>
         ): (
         <Routes>
           <Route path="/recipes" element={<Recipes recipes={recipes} />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signup" element={<SignUpPage setUser={setUser} />} />
           <Route path="/login" element={<LoginPage setUser={setUser} />} />
           <Route path="/" element={<Home recipes={recipes}/>} />
         </Routes>
