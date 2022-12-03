@@ -1,7 +1,7 @@
 import PreviousSearches from "../components/PreviousSearches"
 import RecipeCard from "../components/RecipeCard"
 
-export default function Recipes({ recipes, user }){
+export default function Recipes({ onDeleteRecipe, recipes, user }){
     /*const recipes = [
         {
             title: "Chicken Pan Pizza",
@@ -71,7 +71,7 @@ export default function Recipes({ recipes, user }){
             <div className="recipes-container">
                 {/* <RecipeCard /> */}
                 {recipes.map((recipe) => (
-                    <RecipeCard key={recipe.id} user={user} recipe={recipe} />
+                    <RecipeCard key={recipe.id}  onDeleteRecipe={onDeleteRecipe} user={user} recipe={recipe} />
                 ))}
             </div>
         </div>

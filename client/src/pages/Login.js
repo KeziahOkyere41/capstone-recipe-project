@@ -39,42 +39,29 @@ export default function LoginPage({ setUser }) {
   }
 
   return (
-    <div className="section login">
-      <div className="col img">
-                <img src="/img/gallery/img_10.jpg" alt="" />
-      </div>
-      <div className="col typography">
-        <div className="login-form">
-          <Form onSubmit={handleSubmit}>
-            <Form.Group size="lg" controlId="username">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              autoFocus
-              autoComplete="off"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            </Form.Group>
-            <Form.Group size="lg" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            </Form.Group>
-            <Button block size="lg" type="submit" disabled={!validateForm()}>
+    <div className="section forms">
+      <form className="form" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <Button block size="lg" type="submit" disabled={!validateForm()}>
               {isLoading ? "Loading..." : "Login"}
-            </Button>
-            <Form.Group>
-              {errors.map((err) => (
-                <Alert key={err}>{err}</Alert>
-              ))}
-            </Form.Group>
-          </Form>
-        </div>
-      </div>
+        </Button>
+        {errors.map((err) => (
+          <Alert key={err}>{err}</Alert>
+        ))}
+      </form>
     </div>
   );
 }

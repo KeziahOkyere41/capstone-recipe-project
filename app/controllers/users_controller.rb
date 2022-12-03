@@ -19,7 +19,10 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:name, :email, :password, :confirm_password)
+        image = Cloudinary::Uploader.upload(params[:image], {
+        upload_preset: "thumbnail-media",
+      })
+        params.permit(:name, :email, :password, :confirm_password, :location, :image['url'])
     end
 
 end
