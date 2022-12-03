@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
-
+import Profile from "../pages/Profile"
 import { useState } from "react"
 import Sidebar from "./Sidebar"
 
@@ -84,23 +84,41 @@ export default function Navbar({ user, setUser }){
                       { userLinks.map(link => (
                           <Link className={location.pathname === link.path ? "active" : ""} to={link.path} key={link.name}>{link.name}</Link>
                     )) }
+                    
                      </div>
-                     <button className="btn" onClick={handleLogoutClick}>Logout</button>
+                     <div onClick={() => setShowSidebar(true)} className={showSidebar ? "sidebar-btn active" : "sidebar-btn"}>
+                    
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    
+                    
+                </div>
+               
+                    <Profile user={user} setUser={setUser}/> 
+                     {/*<button className="btn" onClick={handleLogoutClick}>Logout</button>*/}
+                     
                  </>):(
+                 <>
                  <div className="nav-links">
                     { genLinks.map(link => (
                         <Link className={location.pathname === link.path ? "active" : ""} to={link.path} key={link.name}>{link.name}</Link>
                     )) }
                     
                 </div>
-                )}
                 <div onClick={() => setShowSidebar(true)} className={showSidebar ? "sidebar-btn active" : "sidebar-btn"}>
+                   
                     <div className="bar"></div>
                     <div className="bar"></div>
                     <div className="bar"></div>
+                    
                 </div>
+                </>
+                )}
+               
             </div>
-            { showSidebar && <Sidebar close={closeSidebar} user={user} genLinks={genLinks} userLinks={userLinks}/> }
+           
+            { showSidebar && <Sidebar close={closeSidebar} user={user} genLinks={genLinks} userLinks={userLinks}/> } 
         </>
     )
 }

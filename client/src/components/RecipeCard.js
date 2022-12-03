@@ -1,14 +1,16 @@
-import { useState } from "react";
+import React, {useState, useEffect, useRef} from "react";
 import CustomImage from "./CustomImage";
 import StarRating from "./StarRating";
 import { Link } from 'react-router-dom';
 import Share from './Share';
+import RecipeDrop from "./RecipeDrop";
 import { BsBookmarkStar } from "react-icons/bs"
 
-export default function RecipeCard({ recipe, user}){
+export default function RecipeCard({ onDeleteRecipe, recipe, user}){
   console.log(recipe)
   const [bookmark, setBookmark] = useState(null);
   const [errors, setErrors] = useState([]);
+  
   
   function handleBookmark(e){
     e.preventDefault();
@@ -26,8 +28,17 @@ export default function RecipeCard({ recipe, user}){
       }
     });
     
-    
   }
+  
+  function handleDeleteClick() {
+      fetch(`/recipes/${recipe.id}`, {
+        method: "DELETE",
+      }).then((r) => {
+        if (r.ok) {
+          onDeleteRecipe(recipe);
+        }
+      });
+    }
     return (
       <>
        {user ? (
@@ -42,6 +53,7 @@ export default function RecipeCard({ recipe, user}){
                 <BsBookmarkStar onClick={handleBookmark} /> <br/>
                 <Share />
                 <Link className="view-btn" to={`/recipes/${recipe.id}`}>VIEW RECIPE</Link>
+                {user.id === recipe.user.id ? <RecipeDrop handleDeleteClick={handleDeleteClick} />: null}
             </div>
           </div>):(
             <div className="recipe-card">
