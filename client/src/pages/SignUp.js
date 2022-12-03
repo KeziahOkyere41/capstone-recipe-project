@@ -47,8 +47,8 @@ function SignUpPage({ setUser }) {
   }
 
   return (
-      <div className="Signup">
-      <Form onSubmit={handleSubmit}>
+      <div className="section forms">
+      {/*<Form className="form" onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="name">
         <Form.Label>Full Name</Form.Label>
         <Form.Control
@@ -78,7 +78,7 @@ function SignUpPage({ setUser }) {
         />
         </Form.Group>
         <Form.Group size="lg" controlId="password_confirmation">
-        <Form.Label>Password Confirmation</Form.Label>
+        <Form.Label>Confirm Password</Form.Label>
         <Form.Control
             type="password"
             value={passwordConfirmation}
@@ -93,7 +93,40 @@ function SignUpPage({ setUser }) {
             <Alert key={err}>{err}</Alert>
           ))}
         </Form.Group>
-      </Form>
+      </Form>*/}
+      <form className="form" onSubmit={handleSubmit}>
+         <input
+          type="text"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={passwordConfirmation}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+          required
+        />
+        <button className="btn" type="submit">
+          Submit
+        </button>
+      </form>
       </div>
   );
 }

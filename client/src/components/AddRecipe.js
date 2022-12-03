@@ -74,7 +74,7 @@ const Add = ({ user, handleAddRecipe }) => {
   };
 
   return (
-    <div className="add-recipe section">
+    <div className="section forms">
       <form className="form" onSubmit={handleSubmit}>
         <h3>Create a Recipe</h3>
         <input

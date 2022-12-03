@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer";
 import RecipeDetails from "./components/RecipeDetails";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import Recipes from "./pages/Recipes";
 import Settings from "./pages/Settings";
 import SignUpPage from "./pages/SignUp";
@@ -50,27 +51,13 @@ function App() {
           );
          }
        });
-    /*Promise.all([
-      fetch("/recipes"),
-      fetch("/me") 
-    ])
-     .then(([recipesRes, userRes]) => {
-     console.log(userRes)
-       if([recipesRes.ok, userRes.ok]){
-         Promise.all([recipesRes.json(), userRes.json()])
-         .then(([recipes, currentUser]) => {
-           setRecipes(recipes);
-           setUser(currentUser);
-           //setIsLoggedin((isLoggedin) => !isLoggedin)
-           
-         })
-       }else {
-        Promise.all([recipesRes.json(), userRes.json()]).then(data => setErrors(data.errors))
-      }
-       
-     })
-     */
+    
     }, []);
+    
+    function handleDeleteRecipe(recipeToDelete) {
+    const updatedRecipes = recipes.filter((recipe) => recipe.id !== recipeToDelete.id);
+    setRecipes(updatedRecipes);
+  }
 
   return (
     <Router>
@@ -79,10 +66,11 @@ function App() {
         {user ? (
           <Routes>
             <Route path="/" element={<Home recipes={recipes} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} user={user}/>} />
-            <Route path="/recipes" element={<Recipes recipes={recipes} user={user} />} />
+            <Route path="/recipes" element={<Recipes onDeleteRecipe={handleDeleteRecipe} recipes={recipes} user={user} />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/recipes/:id" element={<RecipeDetails />} />
             <Route path="/bookmarks" element={<Bookmarks user={user} />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/postrecipe" element={<AddRecipe user={user} handleAddRecipe={handleAddRecipe}/>} />
           </Routes>
         ): (
