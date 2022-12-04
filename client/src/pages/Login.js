@@ -16,7 +16,7 @@ export default function LoginPage({ setUser }) {
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
-
+  
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
