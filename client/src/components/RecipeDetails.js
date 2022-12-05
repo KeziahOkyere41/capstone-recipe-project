@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './details.css';
 import {Card, Button, Container, Form, Row, Col} from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
-import Rate from './Rate'
+import Rate from './Rate';
+import StarRating from './StarRating';
 
 function RecipeDetails({ user, rating, setRating }) {
     
@@ -113,7 +114,7 @@ function RecipeDetails({ user, rating, setRating }) {
 
                         {recipe.reviews !== [] ? (
                             recipe.reviews?.map(review => {
-                                return <p key={review.id}>Rating: {review.rating} <br /> {review.comment}</p>
+                                return <StarRating user={user} key={review.id} review={review}/>
                             })
                         ): ( <p> No reviews for this recipe </p> )}
 

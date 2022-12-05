@@ -20,22 +20,21 @@ export default function StarRating(){
         </div>
     )
 }
-
+*/
 
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import './ratings.css';
 
-const StarRating = ({ review, user }) => {
-  const {rating, comment} = review;
+const StarRating = ({ review }) => {
   const ratingStar = Array.from({ length: 5 }, (elem, index) => {
     let number = index + 0.5;
-    debugger;
+    
     return (
       <span key={index}>
-        {rating >= index + 1 ? (
+        {review.rating >= index + 1 ? (
           <FaStar className="icon" />
-        ) : rating >= number ? (
+        ) : review.rating >= number ? (
           <FaStarHalfAlt className="icon" />
         ) : (
           <AiOutlineStar className="icon" />
@@ -48,7 +47,7 @@ const StarRating = ({ review, user }) => {
     <div>
       <div className="icon-style">
         {ratingStar}
-        <p>({review} customer reviews)</p>
+        <p>({review.comment} <span>User review</span>)</p>
       </div>
     </div>
   );
@@ -56,8 +55,8 @@ const StarRating = ({ review, user }) => {
 
 export default StarRating;
 
-*/
 
+/*
 import React, { useState } from "react";
 import Rate from "./Rate";
 
@@ -81,6 +80,9 @@ const StarRating = ({ getRatings }) => {
     </>
   );
 };
+
 //color={{filled: "rgb(136 87 25)", unfilled: "rgb(214 184 147)"}}
 //count={10}
 export default StarRating;
+
+*/
