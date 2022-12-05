@@ -70,7 +70,7 @@ export default function Recipes({ onDeleteRecipe, recipes, user }){
             <PreviousSearches />
             <div className="recipes-container">
                 {/* <RecipeCard /> */}
-                {recipes.map((recipe) => (
+                {recipes?.map((recipe) => (
                     <RecipeCard key={recipe.id}  onDeleteRecipe={onDeleteRecipe} user={user} recipe={recipe} />
                 ))}
             </div>

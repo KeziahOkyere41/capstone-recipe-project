@@ -4,5 +4,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :book_marks
   has_many :reviews
   has_many :recipes, through: :book_marks
-  has_many :recipes, through: :reviews
+
 end

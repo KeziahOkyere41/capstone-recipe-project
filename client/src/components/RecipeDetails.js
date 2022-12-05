@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './details.css';
 import {Card, Button, Container, Form, Row, Col} from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
+import Rate from './Rate'
 
-function RecipeDetails() {
+function RecipeDetails({ user, rating, setRating }) {
+    
     const [recipe, setRecipe] = useState([]);
     const [formData, setFormData] = useState({
-      rating: 0,
       comment: "",
-      user_id: recipe.user_id,
-      recipe_id: recipe.id
+      user_id: user.id
     })
     const params = useParams();
     console.log(params)
@@ -20,18 +20,23 @@ function RecipeDetails() {
             .then(data => setRecipe(data))
     }, [params.id])
     
+    function handleAddRecipeReview(newRecipeReview) {
+    setRecipe([...recipe.reviews, newRecipeReview]);
+  }
+    console.log(recipe.review)
      function handleChange(event) {
        setFormData({
           ...formData,
           [event.target.name]: event.target.value,
         });
       };
+      
     
     function addReviewHandler(e){
       e.preventDefault();
     
       const newReview = {
-        ...formData
+        ...formData, rating, recipe_id: recipe.id
       };
     
       fetch("/reviews", {
@@ -42,11 +47,11 @@ function RecipeDetails() {
         body: JSON.stringify(newReview),
         }).then((r) => r.json())
         .then((newReview) => setFormData(newReview));
+        handleAddRecipeReview(newReview)
     
     }
-    
-    const reviewItems = recipe.reviews
-    
+    console.log(recipe)
+    const reviewItem = recipe.reviews;
     if (!recipe) return <h2>Loading...</h2>
     console.log(recipe)
     
@@ -76,22 +81,19 @@ function RecipeDetails() {
 
                     <h2 className='text-center'>Add Review</h2>
                     <hr />
-
-                        <Form onSubmit={addReviewHandler}>
-                            <Form.Group className="mb-3" controlId="rating">
-                                <Form.Label>Rating</Form.Label>
+			<div className="row">
+              		  <div className="col text-center">
+          		    <h2>Rate me</h2>
+          		    <Rate rating={rating} onRating={(rate) => setRating(rate)} />
+          		    <p>Rating - {rating}</p>
+                          </div>
+      			</div>
+                        <Form className="section forms" onSubmit={addReviewHandler}>
+                            
+                           <Form.Group className="form" controlId="description">
                                 <Form.Control
-                                    value={formData.rating}
-                                    onChange={handleChange}
-                                    type="number"
-                                />
-                            </Form.Group>
-
-                        
-
-                            <Form.Group className="mb-3" controlId="description">
-                                <Form.Label>Description</Form.Label>
-                                <Form.Control
+                                    name="comment"
+                                    placeholder="Comment"
                                     value={formData.comment}
                                     onChange={handleChange}
                                     as="textarea"
@@ -102,18 +104,18 @@ function RecipeDetails() {
                             <Button variant="primary" type="submit">
                                 Add Review
                             </Button>
-                        </Form>
+                       </Form>
 
                          <br />
 
-                        <h5>Product Reviews</h5>
+                        <h5>Recipe Reviews</h5>
                         <hr />
 
-                        {reviewItems ? (
-                            recipe.reviews.map(review => {
+                        {recipe.reviews !== [] ? (
+                            recipe.reviews?.map(review => {
                                 return <p key={review.id}>Rating: {review.rating} <br /> {review.comment}</p>
                             })
-                        ): ( <p> No reviews for this product </p> )}
+                        ): ( <p> No reviews for this recipe </p> )}
 
                         
                 </Col>

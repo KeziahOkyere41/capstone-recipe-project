@@ -22,6 +22,7 @@ import AddRecipe from "./components/AddRecipe";
 function App() {
   const [recipes, setRecipes] = useState([]);
   const [user, setUser] = useState(null);
+  const [rating, setRating] = useState(0);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [errors, setErrors] = useState(null);
   
@@ -68,7 +69,7 @@ function App() {
             <Route path="/" element={<Home recipes={recipes} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} user={user}/>} />
             <Route path="/recipes" element={<Recipes onDeleteRecipe={handleDeleteRecipe} recipes={recipes} user={user} />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/recipes/:id" element={<RecipeDetails />} />
+            <Route path="/recipes/:id" element={<RecipeDetails rating={rating} setRating={setRating} user={user} />} />
             <Route path="/bookmarks" element={<Bookmarks user={user} />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/postrecipe" element={<AddRecipe user={user} handleAddRecipe={handleAddRecipe}/>} />

@@ -1,6 +1,7 @@
 {
   "name": "recipe-sharing-app",
   "version": "0.1.0",
+  "proxy": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "@cloudinary/react": "^1.6.0",
