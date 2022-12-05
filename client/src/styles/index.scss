@@ -102,6 +102,8 @@ img{
 @import "partials/login-section.scss";
 @import "partials/forms-section.scss";
 @import "partials/profile-section.scss";
+@import "partials/recipe.scss";
+
 
 
 
@@ -159,6 +161,9 @@ img{
 
 .main{
     padding-block: 3vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .container{
     padding-inline: 25vw;

@@ -47,7 +47,7 @@ const StarRating = ({ review }) => {
     <div>
       <div className="icon-style">
         {ratingStar}
-        <p>({review.comment} <span>User review</span>)</p>
+        <p>{review.comment} (<span>User review</span>)</p>
       </div>
     </div>
   );
