@@ -55,9 +55,6 @@ function Profile({ user, setUser }) {
         <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
           <h3>{user.name}<br/><span>{user.location}</span></h3>
           <ul>
-            {/*{profileLinks.map((link) =>{
-              <ProfileItems key={link.name} link={link}/>
-            })}*/}
             <li className = 'dropdownItem'>
                <Link to="/profile">
                  <FontAwesomeIcon icon={faUser} />
