@@ -1,6 +1,13 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 .footer{
+    position: relative;
     background-color: #0f0f0f;
     color: #fff;
+    margin-top: auto;
     padding-block: 3em;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
