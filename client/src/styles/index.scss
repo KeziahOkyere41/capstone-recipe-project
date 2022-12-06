@@ -100,7 +100,11 @@ img{
 @import "partials/previous-searches.scss";
 @import "partials/recipes-section.scss";
 @import "partials/login-section.scss";
-@import "partials/add-recipe.scss";
+@import "partials/forms-section.scss";
+@import "partials/profile-section.scss";
+@import "partials/recipe.scss";
+
+
 
 
 .options-container{
@@ -157,6 +161,9 @@ img{
 
 .main{
     padding-block: 3vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .container{
     padding-inline: 25vw;

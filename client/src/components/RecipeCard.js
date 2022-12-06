@@ -1,14 +1,16 @@
-import { useState } from "react";
+import React, {useState, useEffect, useRef} from "react";
 import CustomImage from "./CustomImage";
 import StarRating from "./StarRating";
 import { Link } from 'react-router-dom';
 import Share from './Share';
+import RecipeDrop from "./RecipeDrop";
 import { BsBookmarkStar } from "react-icons/bs"
 
-export default function RecipeCard({ recipe, user}){
+export default function RecipeCard({ onDeleteRecipe, recipe, user}){
   console.log(recipe)
   const [bookmark, setBookmark] = useState(null);
   const [errors, setErrors] = useState([]);
+  
   
   function handleBookmark(e){
     e.preventDefault();
@@ -26,8 +28,18 @@ export default function RecipeCard({ recipe, user}){
       }
     });
     
-    
   }
+  
+  function handleDeleteClick() {
+      fetch(`/recipes/${recipe.id}`, {
+        method: "DELETE",
+      }).then((r) => {
+        if (r.ok) {
+          onDeleteRecipe(recipe);
+        }
+      });
+    }
+    console.log(recipe.reviews)
     return (
       <>
        {user ? (
@@ -37,11 +49,12 @@ export default function RecipeCard({ recipe, user}){
                 {console.log(recipe.user)}
                 <img className="auther-img" src={recipe.user.image} alt=""/>
                 <p className="recipe-title">{recipe.title}</p>
-                <p className="recipe-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <StarRating/>
+                <p className="recipe-desc">Jollof, or jollof rice, is a rice dish from West Africa. The dish is typically made with long-grain rice, tomatoes, onions, spices, vegetables and meat in a single pot, although its ingredients and preparation methods vary across different regions.</p>
+                {console.log(recipe.reviews)}
                 <BsBookmarkStar onClick={handleBookmark} /> <br/>
                 <Share />
                 <Link className="view-btn" to={`/recipes/${recipe.id}`}>VIEW RECIPE</Link>
+                {user.id === recipe.user.id ? <RecipeDrop handleDeleteClick={handleDeleteClick} />: null}
             </div>
           </div>):(
             <div className="recipe-card">
@@ -49,8 +62,8 @@ export default function RecipeCard({ recipe, user}){
               <div className="recipe-card-info">
                 <img className="auther-img" src={recipe.user.image} alt=""/>
                 <p className="recipe-title">{recipe.title}</p>
-                <p className="recipe-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <StarRating/>
+                <p className="recipe-desc">Fried yam is a
+                 popular street food in African countries like Nigeria, and Ghana. It's usually served with pepper sauce and sometimes with fried plantain, and fish.</p>
                 <Link className="view-btn" to={`/login`}>VIEW RECIPE</Link>
               </div>
             </div>
