@@ -84,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: capstone_recipe_project_production
-  username: recipe_app
-  password: <%= ENV['CAPSTONE_RECIPE_PROJECT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
