@@ -43,7 +43,7 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
       <>
        {user ? (
           <div className="recipe-card">
-            <CustomImage imgSrc={recipe.thumbnail} pt="50%"/>
+            <CustomImage imgSrc={recipe.thumbnail} pt="65%"/>
             <div className="recipe-card-info">
                 {console.log(recipe.user)}
                 <img className="auther-img" src={recipe.user.image} alt=""/>
@@ -57,11 +57,12 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
             </div>
           </div>):(
             <div className="recipe-card">
-              <CustomImage imgSrc={recipe.thumbnail} pt="50%"/>
+              <CustomImage imgSrc={recipe.thumbnail} pt="65%"/>
               <div className="recipe-card-info">
                 <img className="auther-img" src={recipe.user.image} alt=""/>
                 <p className="recipe-title">{recipe.title}</p>
-                <p className="recipe-desc">Fried yam is a popular street food in African countries like Nigeria, and Ghana. It's usually served with pepper sauce and sometimes with fried plantain, and fish.</p>
+                <p className="recipe-desc">Fried yam is a
+                 popular street food in African countries like Nigeria, and Ghana. It's usually served with pepper sauce and sometimes with fried plantain, and fish.</p>
                 <StarRating/>
                 <Link className="view-btn" to={`/login`}>VIEW RECIPE</Link>
               </div>

@@ -7,7 +7,7 @@ import React, {
   useEffect,
   useState
 } from "react"
-import Navbar from "./components/Navbar"
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RecipeDetails from "./components/RecipeDetails";
 import Home from "./pages/Home";
