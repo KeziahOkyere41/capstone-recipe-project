@@ -1,7 +1,7 @@
 import HeroSection from "../components/HeroSection";
 import ImproveSkills from "../components/ImproveSkills";
 import QouteSection from "../components/QuoteSection";
-import ChiefsSection from "../components/ChiefsSection";
+// import ChiefsSection from "../components/ChiefsSection";
 import UserImproveSkills from "../components/UserImproveSkills";
 
 
@@ -23,7 +23,7 @@ export default function Home({ recipes, user }){
             <HeroSection recipes={recipes}/>
             <UserImproveSkills />
             <QouteSection />
-            <ChiefsSection />
+            //<ChiefsSection />
         </div>
         )}
     </>

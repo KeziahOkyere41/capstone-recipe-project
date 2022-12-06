@@ -3,7 +3,7 @@ export default function Footer(){
         <div className="footer">
             <div className="footer-section">
                 <p className="title">DelicaciesCrib</p>
-                <p>A place where you can <i>pamper</i> your soul and tummy.</p>
+                <p>A place where you can <i><b>pamper</b></i> your soul and tummy.</p>
                 <p className="copyright">&copy; 2022 | All Rights Reserved!</p>
 
             </div>

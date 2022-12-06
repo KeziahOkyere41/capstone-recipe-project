@@ -20,7 +20,7 @@ export default function HeroSection({ recipes }){
         <div className="section hero">
             <div className="col typography">
                 <h1 className="title">What Are We About</h1>
-                <p className="info">DelicaciesCrib is a place where you can <i>pamper</i> your soul and tummy with delicious food recipes. And our service is absolutely free. So start exploring now.</p>
+                <p className="info">DelicaciesCrib is a place where you can <i><b>pamper</b></i> your soul and tummy with delicious food recipes. And our service is absolutely free. So start exploring now.</p>
                 <button className="btn" onClick={handleClick}>explore now</button>
             </div>
             <div className="col gallery">
