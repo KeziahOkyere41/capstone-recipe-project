@@ -54,5 +54,5 @@ Rate.defaultProps = {
     unfilled: "#DCDCDC",
   },
 };
-
 export default Rate;
+

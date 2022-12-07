@@ -68,6 +68,7 @@ const Add = ({ user }) => {
     }).then((r) => r.json())
     .then((newRecipe) => setFormData(newRecipe));
     //handleAddRecipe(newRecipe);
+    window.reload()
     navigate('/')
     
   

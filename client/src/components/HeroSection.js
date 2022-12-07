@@ -2,7 +2,9 @@ import CustomImage from "./CustomImage"
 import { useNavigate } from  'react-router-dom'
 export default function HeroSection({ recipes }){
     const navigate = useNavigate();
-    const images = recipes.sort(() => Math.random() - 0.5)
+    const images = [...recipes];
+    images.sort(() => 0.5 - Math.random());
+    const recipeImages = images.slice(0, 6);
     function handleClick(){
       navigate("/recipes")
     }
@@ -14,7 +16,7 @@ export default function HeroSection({ recipes }){
                 <button className="btn" onClick={handleClick}>explore now</button>
             </div>
             <div className="col gallery">
-                { images.map((src) => (
+                { recipeImages.map((src) => (
                     <CustomImage key={src.id} imgSrc={src.thumbnail} pt={"90%"} />
                 )) }
             </div>

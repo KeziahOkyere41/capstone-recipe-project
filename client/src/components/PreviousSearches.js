@@ -4,10 +4,9 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
 export default function PreviousSearches({ filterSearch }){
     const [searchQuery, setSearchQuery] = useState("");
-    const searches = ['pizza', 'burger', 'cookies', 'juice', 'biriyani', 'salad', 'ice cream'];
-    const sampleSearches = [...searches, searchQuery].sort(() => Math.random() - 0.5);
+    const searches = ['pizza', 'burger', 'cookies', 'juice', 'biriyani', 'salad', 'ice cream', 'lasagna', 'pudding', 'soup']
     
-    
+
     function handleInput(event){
       const searchWord = event.target.value;
       setSearchQuery(searchWord)
@@ -27,7 +26,7 @@ export default function PreviousSearches({ filterSearch }){
         <div className="previous-searches section">
             <h2>Previous Searches</h2>
             <div className="previous-searches-container">
-                { sampleSearches?.map((search, index) => (<div key={index} style={{animationDelay: index * .1 + "s"}} className="search-item">
+                { searches?.map((search, index) => (<div key={index} style={{animationDelay: index * .1 + "s"}} className="search-item">
                     {search}
                 </div>)) }
             </div>

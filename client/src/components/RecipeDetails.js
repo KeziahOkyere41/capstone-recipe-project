@@ -51,6 +51,7 @@ function RecipeDetails({ user, rating, setRating }) {
         }).then((r) => r.json())
         .then((newReview) => setFormData(newReview));
         //handleAddRecipeReview(newReview)
+        window.reload();
     
     }
     console.log(recipe)
