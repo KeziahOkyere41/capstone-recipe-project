@@ -4,7 +4,7 @@ import {Card, Button, Container, Form, Row, Col} from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 import Rate from './Rate';
 import StarRating from './StarRating';
-import StarsRating from "react-star-rate";
+// import StarsRating from "react-star-rate";
 import { Link } from 'react-router-dom';
 
 function RecipeDetails({ user, rating, setRating }) {

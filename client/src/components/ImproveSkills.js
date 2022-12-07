@@ -8,7 +8,7 @@ export default function ImproveSkills(){
         "Learn new recipes",
         "Write your own recipes",
         "Get cooking tips",
-        "Get signed up",
+        "Search for recipes",
         "Share recipes",
         "Get ranked"
     ]
