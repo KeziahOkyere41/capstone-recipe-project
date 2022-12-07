@@ -27,9 +27,10 @@ function App() {
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [errors, setErrors] = useState(null);
   
-  function handleAddRecipe(newRecipe) {
+  
+  /*function handleAddRecipe(newRecipe) {
     setRecipes([...recipes, newRecipe]);
-  }
+  }*/
 
   useEffect(() => {
     fetch("/me")
@@ -60,6 +61,7 @@ function App() {
     const updatedRecipes = recipes.filter((recipe) => recipe.id !== recipeToDelete.id);
     setRecipes(updatedRecipes);
   }
+  
 
   return (
     <Router>
@@ -73,7 +75,7 @@ function App() {
             <Route path="/recipes/:id" element={<RecipeDetails rating={rating} setRating={setRating} user={user} />} />
             <Route path="/bookmarks" element={<Bookmarks user={user} />} />
             <Route path="/profile" element={<ProfileDetails />} />
-            <Route path="/postrecipe" element={<AddRecipe user={user} handleAddRecipe={handleAddRecipe}/>} />
+            <Route path="/postrecipe" element={<AddRecipe user={user} />} />
           </Routes>
         ): (
         <Routes>

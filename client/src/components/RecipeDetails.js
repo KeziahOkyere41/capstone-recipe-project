@@ -23,9 +23,9 @@ function RecipeDetails({ user, rating, setRating }) {
             .then(data => setRecipe(data))
     }, [params.id])
     
-    function handleAddRecipeReview(newRecipeReview) {
+    /*function handleAddRecipeReview(newRecipeReview) {
     setRecipe([...recipe.reviews, newRecipeReview]);
-  }
+  }*/
     console.log(recipe.review)
      function handleChange(event) {
        setFormData({
@@ -50,7 +50,7 @@ function RecipeDetails({ user, rating, setRating }) {
         body: JSON.stringify(newReview),
         }).then((r) => r.json())
         .then((newReview) => setFormData(newReview));
-        handleAddRecipeReview(newReview)
+        //handleAddRecipeReview(newReview)
     
     }
     console.log(recipe)
