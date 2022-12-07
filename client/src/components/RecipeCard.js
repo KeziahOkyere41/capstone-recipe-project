@@ -4,7 +4,8 @@ import StarRating from "./StarRating";
 import { Link } from 'react-router-dom';
 import Share from './Share';
 import RecipeDrop from "./RecipeDrop";
-import { BsBookmarkStar } from "react-icons/bs"
+import { BsBookmarkStar } from "react-icons/bs";
+import photo from '../img/user.png';
 
 export default function RecipeCard({ onDeleteRecipe, recipe, user}){
   console.log(recipe)
@@ -46,8 +47,8 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
           <div className="recipe-card">
             <CustomImage imgSrc={recipe.thumbnail} pt="65%"/>
             <div className="recipe-card-info">
-                {console.log(recipe.user)}
-                <img className="auther-img" src={recipe.user.image} alt=""/>
+                {console.log(recipe.user.image)}
+                {recipe.user?.image !== null ? <img className="auther-img" src={recipe.user.image} alt=""/> : <img className="auther-img" src={photo} alt=""/> }
                 <p className="recipe-title">{recipe.title}</p>
                 <p className="recipe-desc">Jollof, or jollof rice, is a rice dish from West Africa. The dish is typically made with long-grain rice, tomatoes, onions, spices, vegetables and meat in a single pot, although its ingredients and preparation methods vary across different regions.</p>
                 {console.log(recipe.reviews)}
