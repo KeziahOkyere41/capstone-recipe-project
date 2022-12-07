@@ -45,7 +45,7 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
       <>
        {user ? (
           <div className="recipe-card">
-            <CustomImage imgSrc={recipe.thumbnail} pt="65%"/>
+            <CustomImage imgSrc={recipe.thumbnail} pt="40%"/>
             <div className="recipe-card-info">
                 {console.log(recipe.user.image)}
                 {recipe.user?.image !== null ? <img className="auther-img" src={recipe.user.image} alt=""/> : <img className="auther-img" src={photo} alt=""/> }
@@ -59,7 +59,7 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
             </div>
           </div>):(
             <div className="recipe-card">
-              <CustomImage imgSrc={recipe.thumbnail} pt="65%"/>
+              <CustomImage imgSrc={recipe.thumbnail} pt="40%"/>
               <div className="recipe-card-info">
                 <img className="auther-img" src={recipe.user.image} alt=""/>
                 <p className="recipe-title">{recipe.title}</p>
