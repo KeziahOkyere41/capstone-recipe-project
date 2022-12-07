@@ -34,28 +34,26 @@ Finally, connect the GitHub remote repository to your local repository and push 
 ### It's recommended that you deploy your project early, and push up changes often, to ensure that your code works equally well in production and development environments.
 
 ### Preparing your App for Deployment
-### Before we can deploy our app to Render, we need to make a few modifications.
+Before we can deploy our app to Render, we need to make a few modifications.
 
-### First, open the config/database.yml file, scroll down to the production section, and update the code to the following:
+First, open the config/database.yml file, scroll down to the production section, and update the code to the following:
 * production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
   
 ### Next, open config/puma.rb and find the section shown below. Here, you will un-comment out two lines of code and make one small edit:
-# Specifies the number of `workers` to boot in clustered mode.
-# Workers are forked web server processes. If using threads and workers together
-# the concurrency of the application would be max `threads` * `workers`.
-# Workers do not work on JRuby or Windows (both of which do not support
-# processes).
-#
-workers ENV.fetch("WEB_CONCURRENCY") { 4 } ### CHANGE: Un-comment out this line; update the value to 4
+* Specifies the number of `workers` to boot in clustered mode.
+* Workers are forked web server processes. If using threads and workers together
+* the concurrency of the application would be max `threads` * `workers`.
+* Workers do not work on JRuby or Windows (both of which do not support
+* processes).
+* workers ENV.fetch("WEB_CONCURRENCY") { 4 } ### CHANGE: Un-comment out this line; update the value to 4
 
-# Use the `preload_app!` method when specifying a `workers` number.
-# This directive tells Puma to first boot the application and load code
-# before forking the application. This takes advantage of Copy On Write
-# process behavior so workers use less memory.
-#
-preload_app! ### CHANGE: Un-comment out this line
+* Use the `preload_app!` method when specifying a `workers` number.
+* This directive tells Puma to first boot the application and load code
+* before forking the application. This takes advantage of Copy On Write
+* process behavior so workers use less memory.
+* preload_app! ### CHANGE: Un-comment out this line
 
 ### Next, open the config/environments/production.rb file and find the following line:
 config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
@@ -64,16 +62,16 @@ config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
 
 ### Finally, inside the bin folder create a render-build.sh script and copy the following into it:
-#!/usr/bin/env bash
-# exit on error
+* !/usr/bin/env bash
+* exit on error
 set -o errexit
 
-# Build commands for front end to create the production build
+* Build commands for front end to create the production build
 rm -rf public
 npm install --prefix client && npm run build --prefix client
 cp -a client/build/. public/
 
-# Build commands for back end
+* Build commands for back end
 bundle install
 bundle exec rake db:migrate 
 bundle exec rake db:seed # if you have seed data, run this command for the initial deploy only to avoid duplicate records
