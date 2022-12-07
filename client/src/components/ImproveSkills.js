@@ -5,11 +5,11 @@ import { useNavigate } from  'react-router-dom'
 export default function ImproveSkills(){
     const navigate = useNavigate();
     const list = [
-        "Learn new recepies",
-        "Experiment with food",
-        "Write your own recepies",
-        "Know nutrition facts",
+        "Learn new recipes",
+        "Write your own recipes",
         "Get cooking tips",
+        "Get signed up",
+        "Share recipes",
         "Get ranked"
     ]
     
@@ -23,7 +23,7 @@ export default function ImproveSkills(){
                 <img src="/img/gallery/img_10.jpg" alt="" />
             </div>
             <div className="col typography">
-                <h1 className="title">Improve Your Culinary Skills</h1>
+                <h1 className="title">Improve Your Cooking Skills</h1>
                 { list.map((item, index) => (
                     <p className="skill-item" key={index}>{item}</p>
                 )) }
