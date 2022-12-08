@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Add = ({ user, handleAddRecipe }) => {
+const Add = ({ user }) => {
   const navigate = useNavigate();
   const [recipeImg, setRecipeImg] = useState("");
   const [formData, setFormData] = useState({
@@ -67,7 +67,7 @@ const Add = ({ user, handleAddRecipe }) => {
       body: JSON.stringify(newRecipe),
     }).then((r) => r.json())
     .then((newRecipe) => setFormData(newRecipe));
-    handleAddRecipe(newRecipe);
+    //handleAddRecipe(newRecipe);
     navigate('/')
     
   
