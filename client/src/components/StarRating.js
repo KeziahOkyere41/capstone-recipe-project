@@ -52,7 +52,7 @@ const StarRating = ({ review }) => {
         <p>{review.comment} (<span>User review</span>)</p>
       </div>
     </div>
-  );
+  );  
 };
 
 export default StarRating;
