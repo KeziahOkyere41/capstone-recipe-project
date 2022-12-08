@@ -50,7 +50,7 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
                 {console.log(recipe.user.image)}
                 {recipe.user?.image !== null ? <img className="auther-img" src={recipe.user.image} alt=""/> : <img className="auther-img" src={photo} alt=""/> }
                 <p className="recipe-title">{recipe.title}</p>
-                <p className="recipe-desc">Jollof, or jollof rice, is a rice dish from West Africa. The dish is typically made with long-grain rice, tomatoes, onions, spices, vegetables and meat in a single pot, although its ingredients and preparation methods vary across different regions.</p>
+                <p className="recipe-desc">{recipe.body}</p>
                 {console.log(recipe.reviews)}
                 <BsBookmarkStar onClick={handleBookmark} /> <br/>
                 <Share />
