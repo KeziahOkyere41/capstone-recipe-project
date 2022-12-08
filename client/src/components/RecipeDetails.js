@@ -6,9 +6,10 @@ import Rate from './Rate';
 import StarRating from './StarRating';
 // import StarsRating from "react-star-rate";
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function RecipeDetails({ user, rating, setRating }) {
-    
+    const navigate = useNavigate();
     const [recipe, setRecipe] = useState([]);
     const [formData, setFormData] = useState({
       comment: "",
@@ -23,10 +24,7 @@ function RecipeDetails({ user, rating, setRating }) {
             .then(data => setRecipe(data))
     }, [params.id])
     
-    /*function handleAddRecipeReview(newRecipeReview) {
-    setRecipe([...recipe.reviews, newRecipeReview]);
-  }*/
-    console.log(recipe.review)
+     console.log(recipe.review)
      function handleChange(event) {
        setFormData({
           ...formData,
@@ -41,7 +39,7 @@ function RecipeDetails({ user, rating, setRating }) {
       const newReview = {
         ...formData, rating, recipe_id: recipe.id
       };
-    
+      setFormData(newReview);
       fetch("/reviews", {
         method: "POST",
         headers: {
@@ -49,13 +47,24 @@ function RecipeDetails({ user, rating, setRating }) {
         },
         body: JSON.stringify(newReview),
         }).then((r) => r.json())
-        .then((newReview) => setFormData(newReview));
+        .then((data) => {
+          
+          handleAddRecipeReview(newReview);
+          navigate(`/recipes/${recipe.id}`);
+        });
         //handleAddRecipeReview(newReview)
-        window.reload();
-    
+        
     }
     console.log(recipe)
-    const reviewItem = recipe.reviews;
+    function handleAddRecipeReview(newRecipeReview) {
+    setRecipe([...recipe.reviews, newRecipeReview]);
+  }
+   
+    
+    const filteredRecipeReview = recipe.reviews?.filter((item)=>{
+      return true
+    })
+  
     if (!recipe) return <h2>Loading...</h2>
     console.log(recipe)
     
@@ -116,8 +125,8 @@ function RecipeDetails({ user, rating, setRating }) {
                         <h5>Recipe Reviews</h5>
                         <hr />
 
-                        {recipe.reviews !== [] ? (
-                            recipe.reviews?.map(review => {
+                        {recipe.reviews ? (
+                            filteredRecipeReview?.map(review => {
                                 return <StarRating user={user} key={review.id} review={review}/>
                             })
                         ): ( <p> No reviews for this recipe </p> )}

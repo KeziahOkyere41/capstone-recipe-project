@@ -6,10 +6,7 @@ import CustomImage from "../components/CustomImage";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0d958d3ac3cd2eded72e264b157ba1774cfb1e19
 export default function LoginPage({ setUser }) {
   let history = useNavigate();
   const [email, setEmail] = useState("");

@@ -28,9 +28,7 @@ function App() {
   const [errors, setErrors] = useState(null);
   
   
-  /*function handleAddRecipe(newRecipe) {
-    setRecipes([...recipes, newRecipe]);
-  }*/
+  
 
   useEffect(() => {
     fetch("/me")
@@ -57,6 +55,14 @@ function App() {
     
     }, []);
     
+    function handleAddRecipe(newRecipe) {
+    setRecipes([...recipes, newRecipe]);
+  }
+  const filteredRecipeData = recipes.filter((item)=>{
+    return true
+  })
+  
+    
     function handleDeleteRecipe(recipeToDelete) {
     const updatedRecipes = recipes.filter((recipe) => recipe.id !== recipeToDelete.id);
     setRecipes(updatedRecipes);
@@ -70,12 +76,12 @@ function App() {
         {user ? ( user.book_marks.length > 0?
           <Routes>
             <Route path="/" element={<Home recipes={recipes} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} user={user}/>} />
-            <Route path="/recipes" element={<Recipes onDeleteRecipe={handleDeleteRecipe} recipes={recipes} user={user} />} />
+            <Route path="/recipes" element={<Recipes onDeleteRecipe={handleDeleteRecipe} recipes={filteredRecipeData}  user={user} />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/recipes/:id" element={<RecipeDetails rating={rating} setRating={setRating} user={user} />} />
             <Route path="/bookmarks" element={<Bookmarks user={user} />} />
             <Route path="/profile" element={<ProfileDetails />} />
-            <Route path="/postrecipe" element={<AddRecipe user={user} />} />
+            <Route path="/postrecipe" element={<AddRecipe user={user} handleAddRecipe={handleAddRecipe} />} />
           </Routes> : <Routes>
             <Route path="/" element={<Home recipes={recipes} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} user={user}/>} />
             <Route path="/recipes" element={<Recipes onDeleteRecipe={handleDeleteRecipe} recipes={recipes} user={user} />} />
@@ -83,7 +89,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/recipes/:id" element={<RecipeDetails rating={rating} setRating={setRating} user={user} />} />
             <Route path="/profile" element={<ProfileDetails />} />
-            <Route path="/postrecipe" element={<AddRecipe user={user} />} />
+            <Route path="/postrecipe" element={<AddRecipe user={user} handleAddRecipe={handleAddRecipe} />} />
           </Routes>
         ): (
         <Routes>
