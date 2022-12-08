@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert"
+import Alert from "react-bootstrap/Alert";
+import CustomImage from "../components/CustomImage";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +17,7 @@ export default function LoginPage({ setUser }) {
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
+  
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,7 +41,7 @@ export default function LoginPage({ setUser }) {
   }
 
   return (
-    <div className="section forms">
+    <div className="section login">
       <form className="form" onSubmit={handleSubmit}>
         <input
           type="email"
@@ -62,6 +64,7 @@ export default function LoginPage({ setUser }) {
           <Alert key={err}>{err}</Alert>
         ))}
       </form>
+      
     </div>
   );
 }

@@ -1,28 +1,77 @@
 .section.login{
-    .col.img{
-        img{
-            width: 100%;
+   display: flex;
+   justify-content: space-between;
+    .form{
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+      margin-top: 2rem;
+      select,
+      input {
+        padding: 7px;
+        min-height: 30px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid rgb(182, 182, 182);
+        margin: 0.3rem 0;
+        &:focus {
+          border: 2px solid rgb(0, 208, 255);
         }
+      }
+      select {
+      color: rgb(95, 95, 95);
+      }
     }
-    .col.typography{
-        padding-left: 1em;
-        .login-form{
-            border-left: .2em solid var(--primary-color);
-            margin-bottom: .5em;
-            padding: .1em 0 .1em .5em;
-            color: var(--text-light);
-            font-weight: bold;
-            transform: translateX(100%);
+    .image-preview{
+      //margin: 2rem 0 2rem 2rem;
+      //padding: 2rem;
+      max-width: 300px;
+      width: 100%;
+      display: -webkit-box;
+      align-items: center;
+      justify-content: center;
+      //padding: 2rem;
+      color: rgb(78, 78, 78);
+
+      img {
+        max-width: 700%;
+      }
+    }
+    .gallery{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.75vw;
+        .custom-image{
+            border-radius: 3px;
+            overflow: hidden;
+            transform: scale(0);
             opacity: 0;
-            animation: getAnimationDuration(.3s) slideInRight forwards;
-            @for $i from 2 through 7 {
-                &:nth-child(#{$i}){
-                    animation-delay: #{$i * .1}s;
-                }
+            animation: getAnimationDuration(.5s) popOut forwards;
+            &:nth-child(2){
+                animation-delay: .1s;
+            }
+            &:nth-child(3){
+                animation-delay: .2s;
+            }
+            &:nth-child(6){
+                animation-delay: .3s;
+            }
+            &:nth-child(9){
+                animation-delay: .4s;
+            }
+            &:nth-child(8){
+                animation-delay: .5s;
+            }
+            &:nth-child(7){
+                animation-delay: .6s;
+            }
+            &:nth-child(4){
+                animation-delay: .7s;
+            }
+            &:nth-child(5){
+                animation-delay: .8s;
             }
         }
-        .btn{
-            margin-top: .75em;
-        }
     }
+    
 }

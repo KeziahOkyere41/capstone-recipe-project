@@ -63,8 +63,7 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
               <div className="recipe-card-info">
                 <img className="auther-img" src={recipe.user.image} alt=""/>
                 <p className="recipe-title">{recipe.title}</p>
-                <p className="recipe-desc">Fried yam is a
-                 popular street food in African countries like Nigeria, and Ghana. It's usually served with pepper sauce and sometimes with fried plantain, and fish.</p>
+                <p className="recipe-desc">{recipe.body}</p>
                 <Link className="view-btn" to={`/login`}>VIEW RECIPE</Link>
               </div>
             </div>

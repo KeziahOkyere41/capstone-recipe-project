@@ -1,4 +1,5 @@
-import React,  { useState } from 'react'
+import React,  { useState } from 'react';
+import CustomImage from "../components/CustomImage";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert"
@@ -14,6 +15,8 @@ function SignUpPage({ setUser }) {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  
+
 
   function validateForm() {
       return name.length > 0 && password.length > 0 && (password===passwordConfirmation);
@@ -47,7 +50,7 @@ function SignUpPage({ setUser }) {
   }
 
   return (
-      <div className="section forms">
+      <div className="section signup">
       {/*<Form className="form" onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="name">
         <Form.Label>Full Name</Form.Label>

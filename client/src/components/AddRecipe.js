@@ -103,25 +103,25 @@ const Add = ({ user }) => {
         </select>
        
         <input
-          type="text"
+          type="textarea"
           name="ingredients"
-          textarea="Ingredients"
+          placeholder="Ingredients"
           value={formData.ingredients}
           onChange={handleChange}
           required
         />
         <input
-          type="text"
+          type="textarea"
           name="body"
-          textarea="Short Description"
+          placeholder="Short Description"
           value={formData.body}
           onChange={handleChange}
           required
         />
         <input
-          type="text"
+          type="textarea"
           name="procedures"
-          textarea="How to prepare it"
+          placeholder="How to prepare it"
           value={formData.procedures}
           onChange={handleChange}
           required
