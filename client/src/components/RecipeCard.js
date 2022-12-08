@@ -9,7 +9,7 @@ import photo from '../img/user.png';
 
 export default function RecipeCard({ onDeleteRecipe, recipe, user}){
   console.log(recipe)
-  const [bookmark, setBookmark] = useState(null);
+  const [isbookmark, setIsBookmark] = useState(null);
   const [errors, setErrors] = useState([]);
   
   
@@ -23,7 +23,7 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
       body: JSON.stringify({ user_id: user.id, recipe_id: recipe.id })
     }).then((r) => {
       if (r.ok) {
-        r.json().then((data) => setBookmark(data));
+        r.json().then((data) => setIsBookmark(data));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

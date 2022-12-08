@@ -60,6 +60,24 @@ export default function Navbar({ user, setUser }){
         }
     ]
     
+    const bookLinks = [
+        {
+            name: "Home",
+            path: "/",
+            icon: faHome
+        },
+        {
+            name: "Recipes",
+            path: "/recipes",
+            icon: faList
+        },
+        {
+            name: "Settings",
+            path: "/settings",
+            icon: faCog
+        }
+    ]
+    
     function handleLogoutClick() {
       fetch("/logout", { method: "DELETE" }).then((r) => {
         if (r.ok) {
@@ -78,7 +96,7 @@ export default function Navbar({ user, setUser }){
         <>
             <div className="navbar container">
                 <Link to="/" className="logo">Deli<span>cacies</span>Crib</Link>
-                {user ? (
+                {user ? (user.book_marks.length > 0?
                  <>
                    <div className="nav-links">
                       { userLinks.map(link => (
@@ -98,7 +116,23 @@ export default function Navbar({ user, setUser }){
                     <Profile user={user} setUser={setUser}/> 
                      {/*<button className="btn" onClick={handleLogoutClick}>Logout</button>*/}
                      
-                 </>):(
+                 </>:<><div className="nav-links">
+                      { bookLinks.map(link => (
+                          <Link className={location.pathname === link.path ? "active" : ""} to={link.path} key={link.name}>{link.name}</Link>
+                    )) }
+                    
+                     </div>
+                     <div onClick={() => setShowSidebar(true)} className={showSidebar ? "sidebar-btn active" : "sidebar-btn"}>
+                    
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    
+                    
+                </div>
+               
+                    <Profile user={user} setUser={setUser}/> 
+                     {/*<button className="btn" onClick={handleLogoutClick}>Logout</button>*/}</>):(
                  <>
                  <div className="nav-links">
                     { genLinks.map(link => (
@@ -118,7 +152,7 @@ export default function Navbar({ user, setUser }){
                
             </div>
            
-            { showSidebar && <Sidebar close={closeSidebar} user={user} genLinks={genLinks} userLinks={userLinks}/> } 
+            { showSidebar && <Sidebar close={closeSidebar} user={user} bookLinks={bookLinks} genLinks={genLinks} userLinks={userLinks}/> } 
         </>
     )
 }

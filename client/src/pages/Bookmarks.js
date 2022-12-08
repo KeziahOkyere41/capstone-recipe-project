@@ -3,28 +3,30 @@ import React, { useEffect, useState } from 'react';
 
 
 export default function Bookmarks({ user }){
-    const [recipes, setRecipes] = useState([]);
+    const [bookmarks, setBookmarks] = useState([]);
     useEffect(() => {
     fetch("/book_marks")
       .then((r) => {
         if(r.ok){
           r.json().then(
            (data) => {
-             setRecipes(data)
+             setBookmarks(data)
            }
           );
          }
        });
     }, [])
 
-    console.log(recipes)
+    console.log(bookmarks)
+    
     
    
     return (
       <div className="recipes-container">
-        {recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} user={user} recipe={recipe} />
+        {bookmarks.recipe?.map((rec) => (
+          <RecipeCard key={rec.id} user={user} recipe={rec} />
         ))}
+        
       </div>
     )
     

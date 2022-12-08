@@ -6,16 +6,6 @@ import CustomImage from "../components/CustomImage";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 
-const myStyle={
-  backgroundImage: 
-"url('https://img.freepik.com/free-vector/login-page-template-glass-style_1017-31854.jpg?w=2000')",
-  height:'100vh',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundAttachment: 'fixed',
-  marginTop:'0px',
-};
-
 
 export default function LoginPage({ setUser }) {
   let history = useNavigate();
