@@ -6,7 +6,10 @@ import CustomImage from "../components/CustomImage";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d958d3ac3cd2eded72e264b157ba1774cfb1e19
 export default function LoginPage({ setUser }) {
   let history = useNavigate();
   const [email, setEmail] = useState("");
@@ -43,7 +46,8 @@ export default function LoginPage({ setUser }) {
   return (
     <div className="section login">
       <form className="form" onSubmit={handleSubmit}>
-        <input
+      <img src="https://cdn4.iconfinder.com/data/icons/avatar-1-2/100/Avatar-10-512.png" /><br/>
+       <input
           type="email"
           placeholder="Email"
           value={email}

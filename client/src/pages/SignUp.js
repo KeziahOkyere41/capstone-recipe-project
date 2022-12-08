@@ -98,6 +98,7 @@ function SignUpPage({ setUser }) {
         </Form.Group>
       </Form>*/}
       <form className="form" onSubmit={handleSubmit}>
+        <img src="https://cdn.shopify.com/s/files/1/0303/0125/files/Ethical_fashion-2_2048x.png?v=1577997291" />
          <input
           type="text"
           placeholder="Full Name"
