@@ -104,7 +104,7 @@ const Add = ({ user, handleAddRecipe }) => {
         <input
           type="text"
           name="ingredients"
-          placeholder="Ingredients"
+          textarea="Ingredients"
           value={formData.ingredients}
           onChange={handleChange}
           required
@@ -112,7 +112,7 @@ const Add = ({ user, handleAddRecipe }) => {
         <input
           type="text"
           name="body"
-          placeholder="Short Description"
+          textarea="Short Description"
           value={formData.body}
           onChange={handleChange}
           required
@@ -120,7 +120,7 @@ const Add = ({ user, handleAddRecipe }) => {
         <input
           type="text"
           name="procedures"
-          placeholder="How to prepare it"
+          textarea="How to prepare it"
           value={formData.procedures}
           onChange={handleChange}
           required
