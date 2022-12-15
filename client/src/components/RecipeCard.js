@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
 import CustomImage from "./CustomImage";
-import StarRating from "./StarRating";
+import TotalRating from "./TotalRating";
 import { Link } from 'react-router-dom';
 import Share from './Share';
 import RecipeDrop from "./RecipeDrop";
@@ -30,6 +30,17 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
     });
     
   }
+  const newArray = []
+  const ratingArray = recipe.reviews?.map((review) => {
+    
+    newArray.push(review.rating);
+    console.log(newArray)
+    
+  })
+  console.log(newArray)
+  const sumRating = newArray.reduce((pre,curr)=>pre+curr,0);
+  const totalRating = sumRating/ratingArray.length;
+  console.log(totalRating)
   
   function handleDeleteClick() {
       fetch(`/recipes/${recipe.id}`, {
@@ -54,6 +65,7 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
                 {console.log(recipe.reviews)}
                 <BsBookmarkStar onClick={handleBookmark} /> <br/>
                 <Share />
+                <TotalRating rating={totalRating} />
                 <Link className="view-btn" to={`/recipes/${recipe.id}`}>VIEW RECIPE</Link>
                 {user.id === recipe.user.id ? <RecipeDrop handleDeleteClick={handleDeleteClick} />: null}
             </div>
@@ -64,6 +76,7 @@ export default function RecipeCard({ onDeleteRecipe, recipe, user}){
                 <img className="auther-img" src={recipe.user.image} alt=""/>
                 <p className="recipe-title">{recipe.title}</p>
                 <p className="recipe-desc">{recipe.body}</p>
+                <TotalRating rating={totalRating} />
                 <Link className="view-btn" to={`/login`}>VIEW RECIPE</Link>
               </div>
             </div>
