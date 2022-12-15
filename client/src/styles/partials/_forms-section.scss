@@ -17,6 +17,17 @@
         &:focus {
           border: 2px solid rgb(0, 208, 255);
         }
+      }  
+      textarea {
+        padding: 7px;
+        min-height: 30px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid rgb(182, 182, 182);
+        margin: 0.3rem 0;
+        &:focus {
+          border: 2px solid rgb(0, 208, 255);
+        }
       }
       select {
       color: rgb(95, 95, 95);

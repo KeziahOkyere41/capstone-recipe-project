@@ -107,24 +107,27 @@ const Add = ({ user, handleAddRecipe }) => {
           <option value="other">Other</option>
         </select>
        
-        <input
-          type="textarea"
+        <textarea
+          rows = "5" 
+          cols = "60"
           name="ingredients"
           placeholder="Ingredients"
           value={formData.ingredients}
           onChange={handleChange}
           required
         />
-        <input
-          type="textarea"
+        <textarea
+          rows = "5" 
+          cols = "60"
           name="body"
           placeholder="Short Description"
           value={formData.body}
           onChange={handleChange}
           required
         />
-        <input
-          type="textarea"
+        <textarea
+          rows = "5" 
+          cols = "60"
           name="procedures"
           placeholder="How to prepare it"
           value={formData.procedures}

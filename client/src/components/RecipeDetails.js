@@ -47,10 +47,11 @@ function RecipeDetails({ user, rating, setRating }) {
         },
         body: JSON.stringify(newReview),
         }).then((r) => r.json())
-        .then((data) => {
-          
+        .then((newReview) => {
+          setFormData(newReview)
+          setRecipe(newReview)
           handleAddRecipeReview(newReview);
-          navigate(`/recipes/${recipe.id}`);
+          navigate("/recipes");
         });
         //handleAddRecipeReview(newReview)
         
